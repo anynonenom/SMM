@@ -1,0 +1,21 @@
+name = "eiden-smm-worker"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+FRONTEND_URL = "http://localhost:3000"
+
+# After running `npm run db:create`, paste the database_id below
+[[d1_databases]]
+binding = "DB"
+database_name = "eiden-smm-db"
+database_id = "54e2cf8f-7820-4610-99a7-82494eb91625"
+
+# After running `npm run r2:create`, this bucket will be ready
+[[r2_buckets]]
+binding = "CSV_BUCKET"
+bucket_name = "eiden-smm-csvs"
+
+# Secrets (set via: wrangler secret put ANTHROPIC_API_KEY)
+# ANTHROPIC_API_KEY

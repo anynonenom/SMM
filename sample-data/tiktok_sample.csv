@@ -1,0 +1,43 @@
+date,video_id,post_type,caption,likes,comment_count,share_count,collect_count,video_views,views,new_followers,average_watch_time,video_completion_rate,duets,stitches,hashtags
+2026-01-01,tt_30000,short,TikTok sample video 1 about tips,1853,147,55,192,58374,58374,22015,22.28,78.04,3,3,#socialmedia #ugc #fyp
+2026-01-02,tt_30001,video,TikTok sample video 2 about product demo,2785,223,272,67,118716,118716,22095,15.16,84.24,24,15,#trend #challenge #viral
+2026-01-03,tt_30002,video,TikTok sample video 3 about behind the scenes,1857,97,292,133,93405,93405,22156,5.76,53.75,1,19,#challenge #socialmedia #viral
+2026-01-04,tt_30003,video,TikTok sample video 4 about behind the scenes,193,190,192,111,97832,97832,22191,11.27,37.59,12,11,#trend #viral #socialmedia
+2026-01-05,tt_30004,short,TikTok sample video 5 about product demo,797,245,213,39,75131,75131,22269,25.46,78.96,19,4,#ugc #fyp #challenge
+2026-01-06,tt_30005,video,TikTok sample video 6 about day in the life,1160,203,72,150,147484,147484,22273,20.66,54.44,1,11,#tiktoktips #challenge #ugc
+2026-01-07,tt_30006,short,TikTok sample video 7 about tips,1162,51,307,214,24828,24828,22328,4.05,18.33,3,17,#challenge #viral #creator
+2026-01-08,tt_30007,video,TikTok sample video 8 about tips,2299,58,30,59,160749,160749,22380,14.91,82.49,15,16,#creator #viral #fyp
+2026-01-09,tt_30008,short,TikTok sample video 9 about product demo,964,213,35,206,105688,105688,22388,15.71,17.89,4,12,#socialmedia #ugc #trend
+2026-01-10,tt_30009,short,TikTok sample video 10 about tips,1405,218,216,137,135742,135742,22388,18.79,88.72,25,14,#viral #ugc #fyp
+2026-01-11,tt_30010,short,TikTok sample video 11 about product demo,2061,58,204,190,21816,21816,22468,3.51,82.47,25,8,#ugc #challenge #socialmedia
+2026-01-12,tt_30011,video,TikTok sample video 12 about behind the scenes,768,37,88,206,37439,37439,22456,23.04,23.96,1,7,#trend #creator #fyp
+2026-01-13,tt_30012,video,TikTok sample video 13 about product demo,1180,171,278,86,91807,91807,22518,6.91,63.61,32,10,#ugc #tiktoktips #fyp
+2026-01-14,tt_30013,short,TikTok sample video 14 about behind the scenes,2375,49,93,207,4406,4406,22549,5.75,91.89,35,24,#tiktoktips #ugc #fyp
+2026-01-15,tt_30014,video,TikTok sample video 15 about tips,508,247,49,64,145555,145555,22606,13.98,20.48,15,10,#socialmedia #viral #ugc
+2026-01-16,tt_30015,video,TikTok sample video 16 about product demo,2117,157,245,135,133866,133866,22625,5.26,45.32,16,19,#ugc #creator #viral
+2026-01-17,tt_30016,video,TikTok sample video 17 about tips,2587,188,257,13,170857,170857,22684,23.91,74.53,4,2,#challenge #trend #viral
+2026-01-18,tt_30017,short,TikTok sample video 18 about tips,508,98,119,125,13507,13507,22729,13.94,64.81,11,6,#trend #ugc #fyp
+2026-01-19,tt_30018,video,TikTok sample video 19 about behind the scenes,3108,112,87,126,92271,92271,22802,12.3,50.42,3,14,#challenge #fyp #socialmedia
+2026-01-20,tt_30019,video,TikTok sample video 20 about behind the scenes,2202,134,43,114,54703,54703,22812,18.34,17.31,28,18,#socialmedia #viral #fyp
+2026-01-21,tt_30020,video,TikTok sample video 21 about tips,1236,143,100,65,126429,126429,22840,6.47,34.38,35,26,#trend #tiktoktips #challenge
+2026-01-22,tt_30021,short,TikTok sample video 22 about behind the scenes,2502,262,180,45,80357,80357,22841,15.45,45.31,32,9,#challenge #viral #fyp
+2026-01-23,tt_30022,video,TikTok sample video 23 about behind the scenes,829,45,295,117,41285,41285,22870,17.9,51.13,26,24,#socialmedia #challenge #trend
+2026-01-24,tt_30023,short,TikTok sample video 24 about tips,784,274,112,177,161655,161655,22863,7.76,13.69,22,7,#ugc #creator #fyp
+2026-01-25,tt_30024,video,TikTok sample video 25 about day in the life,3039,277,148,77,81700,81700,22858,20.15,12.05,17,13,#tiktoktips #challenge #trend
+2026-01-26,tt_30025,video,TikTok sample video 26 about tips,1754,120,167,91,6890,6890,22941,3.39,22.59,9,16,#fyp #ugc #viral
+2026-01-27,tt_30026,short,TikTok sample video 27 about day in the life,367,254,77,86,11706,11706,23006,21.98,71.74,3,13,#ugc #fyp #tiktoktips
+2026-01-28,tt_30027,video,TikTok sample video 28 about tips,531,265,86,52,76406,76406,23060,25.16,88.23,2,20,#tiktoktips #challenge #fyp
+2026-01-29,tt_30028,video,TikTok sample video 29 about day in the life,1975,191,186,121,14172,14172,23057,6.23,48.55,18,1,#challenge #tiktoktips #creator
+2026-01-30,tt_30029,short,TikTok sample video 30 about behind the scenes,756,236,138,54,118167,118167,23046,21.03,46.44,12,11,#trend #creator #socialmedia
+2026-01-31,tt_30030,video,TikTok sample video 31 about behind the scenes,603,207,228,105,63578,63578,23068,26.44,61.21,31,19,#viral #creator #challenge
+2026-02-01,tt_30031,video,TikTok sample video 32 about product demo,1723,231,148,39,81862,81862,23058,21.55,42.8,22,5,#challenge #ugc #tiktoktips
+2026-02-02,tt_30032,video,TikTok sample video 33 about tips,2480,94,63,135,164571,164571,23125,23.07,91.28,10,18,#socialmedia #ugc #creator
+2026-02-03,tt_30033,video,TikTok sample video 34 about behind the scenes,2786,105,266,110,46031,46031,23208,26.62,25.68,35,5,#viral #fyp #challenge
+2026-02-04,tt_30034,video,TikTok sample video 35 about day in the life,979,123,80,135,111535,111535,23255,3.41,23.49,29,14,#ugc #challenge #trend
+2026-02-05,tt_30035,short,TikTok sample video 36 about tips,559,135,57,154,100877,100877,23326,19.51,87.49,14,9,#challenge #trend #creator
+2026-02-06,tt_30036,video,TikTok sample video 37 about tips,2909,133,238,82,29830,29830,23406,23.3,60.69,25,1,#fyp #challenge #viral
+2026-02-07,tt_30037,video,TikTok sample video 38 about day in the life,1532,75,147,68,145409,145409,23463,22.27,63.92,12,20,#challenge #tiktoktips #ugc
+2026-02-08,tt_30038,video,TikTok sample video 39 about product demo,2429,132,307,179,160734,160734,23452,8.36,58.31,19,5,#ugc #creator #challenge
+2026-02-09,tt_30039,short,TikTok sample video 40 about product demo,1288,202,222,31,68447,68447,23495,14.49,88.27,15,1,#challenge #fyp #ugc
+2026-02-10,tt_30040,short,TikTok sample video 41 about product demo,1454,260,243,97,63177,63177,23481,25.26,25.54,14,9,#tiktoktips #viral #socialmedia
+2026-02-11,tt_30041,video,TikTok sample video 42 about product demo,708,16,214,53,77322,77322,23563,9.96,62.39,7,10,#viral #fyp #creator

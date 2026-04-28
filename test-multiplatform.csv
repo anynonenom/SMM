@@ -1,0 +1,61 @@
+platform,date,post_id,post_type,caption,likes,comments,shares,saves,reach,impressions,followers,engagement_rate,video_views,hashtags
+instagram,2024-01-03,ig_001,reel,"New year new goals 🎯 #newyear #motivation",1842,134,98,312,18400,24500,42000,12.97,54200,#newyear #motivation #goals
+instagram,2024-01-07,ig_002,image,"Behind the scenes of our latest shoot 📸 #bts #photography",987,76,42,198,9800,13200,42150,13.29,,#bts #photography #creative
+instagram,2024-01-12,ig_003,carousel,"5 tips to grow your brand in 2024 #branding #growth",2134,198,231,445,21300,28900,42400,14.09,,#branding #growth #marketing
+instagram,2024-01-18,ig_004,reel,"Morning routine that changed my life ⚡ #morning #lifestyle",3241,287,412,789,32400,43200,42800,14.59,98700,#morning #lifestyle #routine
+instagram,2024-01-24,ig_005,image,"Our community is everything 💚 #community #grateful",876,54,23,134,8760,11800,43000,12.20,,#community #grateful
+instagram,2024-02-01,ig_006,reel,"How we built 40K followers in 6 months #growthhack",4312,412,634,1023,43120,57800,43500,14.27,134000,#growthhack #socialmedia #followers
+instagram,2024-02-08,ig_007,carousel,"Content calendar template — save this! #contentcreator",2876,234,876,1234,28760,38400,44000,15.34,,#contentcreator #template #planning
+instagram,2024-02-14,ig_008,image,"Valentine's campaign launch ❤️ #valentines #campaign",1654,143,87,234,16540,22100,44200,12.78,,#valentines #campaign #love
+instagram,2024-02-21,ig_009,reel,"POV: You finally cracked the algorithm 🤯 #algorithm",5432,523,987,1456,54320,72400,45000,15.52,178000,#algorithm #viral #socialmedia
+instagram,2024-02-28,ig_010,carousel,"March content ideas — steal these 📋 #march #ideas",2341,187,543,876,23410,31200,45400,15.24,,#march #ideas #contentcreator
+instagram,2024-03-06,ig_011,reel,"This one simple trick doubled our reach 🚀",6234,634,1234,1876,62340,83200,46000,16.34,198000,#growthhack #reach #tips
+instagram,2024-03-14,ig_012,image,"Spring vibes are here 🌸 #spring #aesthetic",1123,89,45,187,11230,15000,46100,12.83,,#spring #aesthetic #mood
+instagram,2024-03-21,ig_013,carousel,"Ultimate guide to Instagram analytics #analytics",3456,312,678,1123,34560,46100,46500,15.54,,#analytics #instagram #data
+instagram,2024-03-28,ig_014,reel,"When the algorithm finally loves you ❤️",4567,423,823,1234,45670,60900,47000,16.09,145000,#viral #algorithm #reels
+instagram,2024-04-04,ig_015,image,"April fools but our engagement is real 😂 #april",987,98,56,123,9870,13200,47100,13.27,,#april #humor #engagement
+facebook,2024-01-05,fb_001,video,"New Year message to our community 🎉",543,87,234,0,12400,18600,28000,6.97,34500,
+facebook,2024-01-11,fb_002,image,"Product spotlight: Our best seller of 2023",432,54,123,0,9800,14700,28100,6.21,,
+facebook,2024-01-17,fb_003,link,"Read our latest blog post on social media trends 2024",234,43,187,0,7800,11700,28200,5.94,,
+facebook,2024-01-23,fb_004,video,"Behind the brand — meet the team! 👋",876,134,312,0,18900,28300,28400,7.12,28700,
+facebook,2024-01-30,fb_005,image,"Customer spotlight: Amazing results from @client 🌟",654,78,98,0,13200,19800,28500,6.46,,
+facebook,2024-02-06,fb_006,video,"How to use our product in 60 seconds",1234,167,445,0,24600,36900,28700,7.45,41200,
+facebook,2024-02-12,fb_007,image,"Valentine's Day special offer — 20% off ❤️",789,89,234,0,15600,23400,28800,7.18,,
+facebook,2024-02-19,fb_008,link,"5 reasons why our customers keep coming back",456,67,178,0,9800,14700,28900,6.22,,
+facebook,2024-02-26,fb_009,video,"March product launch sneak peek 👀",1567,198,567,0,31200,46800,29100,7.94,52300,
+facebook,2024-03-04,fb_010,image,"Community poll: What content do you want to see?",876,234,145,0,17800,26700,29200,8.53,,
+facebook,2024-03-11,fb_011,video,"Tutorial Tuesday: Step by step guide",1123,145,398,0,22400,33600,29400,7.90,37800,
+facebook,2024-03-18,fb_012,image,"Spring collection is LIVE! 🌸 Shop now",987,112,287,0,19600,29400,29500,7.41,,
+facebook,2024-03-25,fb_013,link,"Case study: How we helped a client grow 300%",654,98,234,0,13200,19800,29600,7.05,,
+facebook,2024-04-01,fb_014,video,"April campaign kickoff 🚀",1345,156,423,0,26900,40300,29800,7.90,44500,
+facebook,2024-04-08,fb_015,image,"Throwback to our best moment this year 📸",765,87,198,0,15300,22900,29900,6.89,,
+linkedin,2024-01-04,li_001,article,"Why personal branding matters in 2024 — my take after 5 years",876,134,312,0,14200,18900,12000,9.31,,
+linkedin,2024-01-10,li_002,image,"Excited to announce we hit 10K followers! 🎉 Thank you",543,89,178,0,9800,13100,12100,6.67,,
+linkedin,2024-01-16,li_003,document,"FREE template: Content strategy framework (save this)",1234,198,567,0,19800,26400,12200,10.09,,
+linkedin,2024-01-22,li_004,video,"How I landed 3 enterprise clients in 30 days",987,167,423,0,16200,21600,12400,9.11,23400,
+linkedin,2024-01-29,li_005,article,"The truth about LinkedIn algorithm in 2024",1456,234,678,0,23200,30900,12500,10.75,,
+linkedin,2024-02-05,li_006,image,"Our team just doubled. Here's what we learned hiring remotely",765,112,289,0,12800,17100,12600,9.17,,
+linkedin,2024-02-13,li_007,document,"B2B content playbook — 47 proven post ideas",2134,312,987,0,34100,45500,12900,11.31,,
+linkedin,2024-02-20,li_008,article,"I made $50K from LinkedIn DMs. Here's my exact script",3456,445,1234,0,55300,73700,13200,13.37,,
+linkedin,2024-02-27,li_009,video,"Cold outreach strategy that actually works in 2024",1876,267,789,0,30100,40100,13500,11.01,34500,
+linkedin,2024-03-05,li_010,image,"3 months into our growth strategy. Real numbers inside 📊",2341,312,876,0,37500,50000,13800,11.86,,
+linkedin,2024-03-12,li_011,article,"Stop posting on LinkedIn until you read this",4123,523,1567,0,65900,87900,14200,13.11,,
+linkedin,2024-03-19,li_012,document,"LinkedIn carousel template pack — 10 designs",1987,289,923,0,31800,42400,14500,11.41,,
+linkedin,2024-03-26,li_013,video,"How we close deals using LinkedIn content",2345,312,1023,0,37500,50000,14800,11.96,41200,
+linkedin,2024-04-02,li_014,article,"Why most LinkedIn strategies fail (and what to do instead)",3678,467,1345,0,58900,78500,15100,13.44,,
+linkedin,2024-04-09,li_015,image,"Celebrating 3 years in business 🎂 What I learned",1234,198,567,0,19800,26400,15300,10.41,,
+tiktok,2024-01-06,tt_001,video,"Day in my life as a social media manager #dayinmylife",8934,432,1234,2345,89340,123000,65000,14.54,234000,#dayinmylife #socialmedia
+tiktok,2024-01-13,tt_002,video,"POV: client asks for engagement results #clientwork #smm",23456,1234,4567,5678,234560,312000,66000,15.07,678000,#clientwork #smm #funny
+tiktok,2024-01-20,tt_003,video,"The social media audit you need to do RIGHT NOW 🔥",12345,876,2345,3456,123450,164600,67000,15.27,389000,#socialmediaaudit #tips #growthhack
+tiktok,2024-01-27,tt_004,video,"Replying to @user why your reels arent going viral",34567,2134,6789,7890,345670,460900,68500,15.82,876000,#reels #viral #algorithm
+tiktok,2024-02-03,tt_005,video,"Content ideas for February — use these #february #contentideas",9876,567,1876,2345,98760,131700,69000,14.83,267000,#february #contentideas #creator
+tiktok,2024-02-10,tt_006,video,"5 tools I use every day as a content creator 🛠️",15678,987,3456,4567,156780,209000,70000,15.13,423000,#tools #contentcreator #productivity
+tiktok,2024-02-17,tt_007,video,"This mistake is killing your engagement rate ❌",45678,3234,8976,9876,456780,608700,71500,16.07,1234000,#engagement #mistake #tips
+tiktok,2024-02-24,tt_008,video,"How I grew 5000 followers this week 📈",28934,1876,5678,6789,289340,385800,73000,15.78,723000,#followers #growth #tiktokgrowth
+tiktok,2024-03-02,tt_009,video,"March content calendar drop — save this 📅",11234,734,2345,3456,112340,149800,74000,15.79,312000,#contentcalendar #march #planning
+tiktok,2024-03-09,tt_010,video,"Honest review of 3 scheduling tools #honest #review",19876,1234,3987,4876,198760,265000,75000,15.60,512000,#honest #review #tools
+tiktok,2024-03-16,tt_011,video,"I tried every viral hook formula. Here's what worked",56789,4123,11234,12345,567890,757200,77000,16.68,1456000,#hook #viral #formula
+tiktok,2024-03-23,tt_012,video,"Behind the scenes: brand photoshoot day 🎬 #bts",8765,456,1234,1987,87650,116900,78000,14.64,234000,#bts #photoshoot #behindthescenes
+tiktok,2024-03-30,tt_013,video,"Algorithm update: what changed and what to do #algorithm",32456,2134,6789,7654,324560,432700,79500,15.69,834000,#algorithm #update #tips
+tiktok,2024-04-06,tt_014,video,"April trends you need to jump on NOW 🔥",21345,1456,4567,5678,213450,284600,80500,15.77,567000,#april #trends #viral
+tiktok,2024-04-13,tt_015,video,"Story time: how I lost 10K followers in one day 😰",67890,5234,13456,14567,678900,905200,82000,16.94,1789000,#storytime #followers #lesson

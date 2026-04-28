@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SocialPulse — CEO Presentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* ── EIDEN VARIABLES ── */
+  :root {
+    --canvas:   #FEFDFB;
+    --beige:    #F4EBD0;
+    --forest:   #122620;
+    --teal:     #0C5752;
+    --teal-lt:  #0E7A73;
+    --gold:     #CFC292;
+    --gold-dk:  #B8A876;
+    --mint:     #34D399;
+    --white:    #FFFFFF;
+    --ink:      #0A0F0C;
+    --red:      #EF4444;
+    --t1: #122620;
+    --t2: rgba(18,38,32,0.60);
+    --t3: rgba(18,38,32,0.40);
+    --bd: rgba(18,38,32,0.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--forest);
+    color: var(--canvas);
+    overflow-x: hidden;
+  }
+
+  /* ── SLIDE ENGINE ── */
+  .slide {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .slide { padding: 40px 24px; }
+  }
+
+  /* slide variants */
+  .slide-dark  { background: var(--forest); color: var(--canvas); }
+  .slide-light { background: var(--canvas); color: var(--forest); }
+  .slide-teal  { background: var(--teal);   color: var(--canvas); }
+  .slide-beige { background: var(--beige);  color: var(--forest); }
+  .slide-ink   { background: var(--ink);    color: var(--canvas); }
+
+  /* ── DECORATIVE SHAPES ── */
+  .deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.04;
+    background: var(--canvas);
+    pointer-events: none;
+  }
+  .deco-line {
+    position: absolute;
+    background: var(--gold);
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  /* ── NAV DOTS ── */
+  #nav-dots {
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+  }
+  .nav-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(207,194,146,0.3);
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+  .nav-dot.active { background: var(--gold); transform: scale(1.4); }
+
+  /* ── SLIDE COUNTER ── */
+  .slide-num {
+    position: absolute;
+    bottom: 28px;
+    right: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.35;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .slide-light .eyebrow { color: var(--teal); }
+  .slide-beige .eyebrow { color: var(--teal); }
+
+  h1.hero {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  h2.title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  h3.sub {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 400;
+    opacity: 0.7;
+    margin-top: 10px;
+  }
+  p.body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    opacity: 0.75;
+    max-width: 680px;
+  }
+  .accent { color: var(--gold); }
+  .slide-dark .accent { color: var(--gold); }
+  .slide-light .accent { color: var(--teal); }
+  .slide-beige .accent { color: var(--teal); }
+  .slide-teal  .accent { color: var(--gold); }
+
+  /* ── CARDS ── */
+  .card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(207,194,146,0.15);
+    border-radius: 16px;
+    padding: 24px 28px;
+  }
+  .card-light {
+    background: var(--white);
+    border: 1px solid var(--bd);
+    border-radius: 16px;
+    padding: 24px 28px;
+    color: var(--forest);
+  }
+  .card-teal {
+    background: rgba(12,87,82,0.08);
+    border: 1px solid rgba(12,87,82,0.2);
+    border-radius: 16px;
+    padding: 24px 28px;
+    color: var(--forest);
+  }
+
+  /* ── GRID ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+  @media(max-width:900px) {
+    .grid-2,.grid-3,.grid-4 { grid-template-columns:1fr; }
+  }
+
+  /* ── TABLES ── */
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    opacity: 0.5;
+    border-bottom: 1px solid rgba(207,194,146,0.15);
+  }
+  td {
+    padding: 12px 14px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(207,194,146,0.08);
+    line-height: 1.5;
+  }
+  .slide-light th, .slide-beige th { border-bottom-color: var(--bd); opacity: 0.45; }
+  .slide-light td, .slide-beige td { border-bottom-color: rgba(18,38,32,0.06); color: var(--t2); }
+  tr:last-child td { border-bottom: none; }
+
+  /* ── CODE BLOCK ── */
+  .code {
+    font-family: 'Outfit', monospace;
+    font-size: 13px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(207,194,146,0.12);
+    border-radius: 12px;
+    padding: 20px 24px;
+    line-height: 1.9;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .slide-light .code, .slide-beige .code {
+    background: rgba(18,38,32,0.04);
+    border-color: var(--bd);
+    color: var(--forest);
+  }
+
+  /* ── BADGES ── */
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px; border-radius: 20px;
+  }
+  .badge-gold   { background: rgba(207,194,146,0.15); color: var(--gold); }
+  .badge-teal   { background: rgba(12,87,82,0.15); color: var(--teal-lt); }
+  .badge-green  { background: rgba(52,211,153,0.15); color: var(--mint); }
+  .badge-red    { background: rgba(239,68,68,0.12); color: #f87171; }
+  .slide-light .badge-teal { background: rgba(12,87,82,0.08); color: var(--teal); }
+
+  /* ── KPI BOX ── */
+  .kpi-box {
+    text-align: center;
+    padding: 24px 16px;
+  }
+  .kpi-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--gold);
+    display: block;
+  }
+  .slide-light .kpi-num, .slide-beige .kpi-num { color: var(--teal); }
+  .kpi-lbl {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 48px; height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin: 20px 0;
+  }
+  .slide-light .divider, .slide-beige .divider { background: var(--teal); }
+
+  /* ── FEATURE ROW ── */
+  .feat-row {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(207,194,146,0.1);
+  }
+  .feat-row:last-child { border-bottom: none; }
+  .slide-light .feat-row, .slide-beige .feat-row { border-bottom-color: var(--bd); }
+  .feat-icon {
+    width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+    background: rgba(207,194,146,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .feat-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px; font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .feat-desc {
+    font-size: 12px; opacity: 0.6; line-height: 1.6;
+  }
+
+  /* ── FLOW ARROW ── */
+  .flow {
+    display: flex; align-items: center; gap: 0; flex-wrap: wrap; gap: 8px;
+  }
+  .flow-step {
+    background: rgba(207,194,146,0.12);
+    border: 1px solid rgba(207,194,146,0.2);
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px; font-weight: 600;
+  }
+  .flow-arrow {
+    font-size: 18px; opacity: 0.4;
+  }
+
+  /* ── COMPARE TABLE ── */
+  .cmp-up   { color: var(--mint); font-weight: 700; }
+  .cmp-down { color: #f87171;     font-weight: 700; }
+
+  /* ── TIMELINE ── */
+  .tl-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(207,194,146,0.08);
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 5px;
+  }
+
+  /* ── COVER SPECIFIC ── */
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 80% at 80% 50%, rgba(12,87,82,0.35) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 10% 80%, rgba(207,194,146,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* ── QUOTE ── */
+  blockquote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    line-height: 1.5;
+    border-left: 3px solid var(--gold);
+    padding-left: 24px;
+    opacity: 0.85;
+    margin: 20px 0;
+  }
+  .slide-light blockquote, .slide-beige blockquote {
+    border-left-color: var(--teal);
+  }
+
+  /* ── PROGRESS BAR ── */
+  .prog-track { height: 6px; background: rgba(207,194,146,0.15); border-radius: 3px; overflow:hidden; margin-top:8px; }
+  .prog-fill  { height: 100%; border-radius: 3px; background: var(--gold); }
+  .slide-light .prog-track { background: rgba(18,38,32,0.08); }
+  .slide-light .prog-fill  { background: var(--teal); }
+
+  /* ── SPACERS ── */
+  .mt-4  { margin-top: 16px; }
+  .mt-6  { margin-top: 24px; }
+  .mt-8  { margin-top: 32px; }
+  .mt-10 { margin-top: 40px; }
+  .mt-12 { margin-top: 48px; }
+  .gap-2 { gap: 8px; }
+
+  /* ── FOOTER BAR ── */
+  .footer-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    opacity: 0.6;
+  }
+
+  /* ── CHECK / X icons ── */
+  .yes { color: var(--mint); font-weight: 700; }
+  .no  { color: rgba(207,194,146,0.3); }
+
+  /* ── KEYBOARD HINT ── */
+  #kbd-hint {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(207,194,146,0.4);
+    transition: opacity 0.5s;
+    pointer-events: none;
+  }
+
+  /* ── SCROLL indicator ── */
+  .scroll-cue {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    opacity: 0.35;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(6px); }
+  }
+  .scroll-cue span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV DOTS ── -->
+<div id="nav-dots"></div>
+<div id="kbd-hint">↓ scroll or use arrow keys</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 1 — COVER
+════════════════════════════════════════════ -->
+<section class="slide slide-dark" id="s1">
+  <div class="cover-bg"></div>
+  <div class="deco-circle" style="width:600px;height:600px;right:-200px;top:-150px;"></div>
+  <div class="deco-circle" style="width:300px;height:300px;left:-80px;bottom:-80px;"></div>
+
+  <div style="position:relative;z-index:1;max-width:900px;">
+    <div class="eyebrow">Eiden Group — Internal Presentation · April 2026</div>
+    <h1 class="hero">Social<span class="accent">Pulse</span></h1>
+    <h3 class="sub">AI-Powered Social Media Analytics Platform</h3>
+    <div class="divider mt-6"></div>
+    <p class="body mt-4">
+      A full-stack intelligence platform that transforms raw social media data
+      into actionable strategy — built for speed, built on data, built for growth.
+    </p>
+    <div style="display:flex;gap:12px;margin-top:36px;flex-wrap:wrap;">
+      <span class="badge badge-green">✅ Live & Deployed</span>
+      <span class="badge badge-gold">Full Feature Set</span>
+      <span class="badge badge-teal">~$10/month</span>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+  <div class="slide-num">01 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 2 — THE PROBLEM
+════════════════════════════════════════════ -->
+<section class="slide slide-light" id="s2">
+  <div class="eyebrow">The Problem</div>
+  <h2 class="title">Brands post blindly.<br/>We fix that.</h2>
+  <div class="divider"></div>
+
+  <blockquote>
+    "Most brands have no idea what's working, why it worked,<br/>or when to post next."
+  </blockquote>
+
+  <div class="grid-3 mt-8">
+    <div class="card-light" style="border-top:3px solid #ef4444;">
+      <div style="font-size:28px;margin-bottom:12px;">📊</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;color:var(--forest);margin-bottom:6px;">No Unified Data</div>
+      <p style="font-size:13px;color:var(--t2);line-height:1.6;">Instagram, TikTok, LinkedIn — each exports a different CSV format. Teams waste hours normalising data manually.</p>
+    </div>
+    <div class="card-light" style="border-top:3px solid var(--gold-dk);">
+      <div style="font-size:28px;margin-bottom:12px;">🤷</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;color:var(--forest);margin-bottom:6px;">No Intelligence</div>
+      <p style="font-size:13px;color:var(--t2);line-height:1.6;">Raw numbers tell you <em>what</em> happened. Nobody tells you <em>why</em> it happened or <em>what to do</em> next.</p>
+    </div>
+    <div class="card-light" style="border-top:3px solid var(--teal);">
+      <div style="font-size:28px;margin-bottom:12px;">🔀</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;color:var(--forest);margin-bottom:6px;">No Comparison</div>
+      <p style="font-size:13px;color:var(--t2);line-height:1.6;">Can't prove if this month's content strategy outperformed last month's. Budget decisions are made on gut feel.</p>
+    </div>
+  </div>
+
+  <div class="slide-num" style="color:var(--t3);">02 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 3 — THE SOLUTION
+════════════════════════════════════════════ -->
+<section class="slide slide-teal" id="s3">
+  <div class="deco-circle" style="width:500px;height:500px;right:-150px;top:-100px;background:var(--forest);opacity:0.2;"></div>
+
+  <div style="position:relative;z-index:1;max-width:800px;">
+    <div class="eyebrow">The Solution</div>
+    <h2 class="title">Upload a CSV.<br/>Get full <span class="accent">intelligence</span>.</h2>
+    <div class="divider"></div>
+
+    <p class="body mt-4" style="opacity:0.85;">
+      SocialPulse is a full-stack analytics platform that turns raw social media exports
+      into actionable intelligence — powered by AI, in under 10 seconds.
+    </p>
+
+    <div class="mt-8">
+      <div class="flow">
+        <div class="flow-step">📤 Upload CSV</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">🔍 Auto-detect platform</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">📊 25+ KPIs computed</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">✨ AI Insights</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">🎯 Take Action</div>
+      </div>
+    </div>
+
+    <div class="grid-3 mt-8">
+      <div class="kpi-box" style="background:rgba(0,0,0,0.15);border-radius:14px;">
+        <span class="kpi-num">10s</span>
+        <span class="kpi-lbl">Time to full report</span>
+      </div>
+      <div class="kpi-box" style="background:rgba(0,0,0,0.15);border-radius:14px;">
+        <span class="kpi-num">25+</span>
+        <span class="kpi-lbl">KPIs computed</span>
+      </div>
+      <div class="kpi-box" style="background:rgba(0,0,0,0.15);border-radius:14px;">
+        <span class="kpi-num">6</span>
+        <span class="kpi-lbl">Platforms supported</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">03 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 4 — ARCHITECTURE
+════════════════════════════════════════════ -->
+<section class="slide slide-dark" id="s4">
+  <div class="eyebrow">Technical Architecture</div>
+  <h2 class="title">How It's <span class="accent">Built</span></h2>
+  <div class="divider"></div>
+
+  <div class="grid-3 mt-8">
+    <div class="card">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Frontend</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;margin-bottom:10px;">Next.js 15</div>
+      <div style="font-size:12px;opacity:0.6;line-height:1.8;">
+        React 18 · TypeScript<br/>
+        Recharts · Lucide Icons<br/>
+        Eiden brand design system<br/>
+        Deployed on <strong>Vercel</strong>
+      </div>
+    </div>
+    <div class="card" style="border-color:rgba(12,87,82,0.4);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Backend</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;margin-bottom:10px;">Python Flask</div>
+      <div style="font-size:12px;opacity:0.6;line-height:1.8;">
+        SQLAlchemy · PostgreSQL<br/>
+        Pandas · NumPy · SciPy<br/>
+        25-endpoint REST API<br/>
+        Deployed on <strong>Railway</strong>
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">AI Layer</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;margin-bottom:10px;">Multi-Provider</div>
+      <div style="font-size:12px;opacity:0.6;line-height:1.8;">
+        Groq (Llama 3.3) — FREE<br/>
+        Google Gemini — FREE<br/>
+        Anthropic Claude<br/>
+        Auto-routed by API key
+      </div>
+    </div>
+  </div>
+
+  <div class="code mt-8">
+┌─────────────────┐     REST API     ┌──────────────────┐     Auto-route     ┌────────────────┐
+│  Next.js 15     │ ───────────────► │  Python Flask    │ ─────────────────► │  AI Provider   │
+│  Vercel (CDN)   │                  │  Railway         │                    │  Groq / Gemini │
+└─────────────────┘                  └────────┬─────────┘                    └────────────────┘
+                                              │
+                                     ┌────────▼─────────┐
+                                     │  PostgreSQL       │
+                                     │  Railway          │
+                                     └──────────────────┘</div>
+
+  <div class="slide-num">04 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 5 — CSV UPLOAD
+════════════════════════════════════════════ -->
+<section class="slide slide-beige" id="s5">
+  <div class="eyebrow">Feature 01</div>
+  <h2 class="title">Smart <span class="accent">CSV Upload</span></h2>
+  <div class="divider"></div>
+
+  <div class="grid-2 mt-8" style="align-items:start;">
+    <div>
+      <p class="body">Drop any platform export. The engine auto-detects Instagram, TikTok, Twitter, LinkedIn, YouTube, or Facebook from column signatures — zero configuration.</p>
+
+      <div class="mt-6">
+        <div class="feat-row">
+          <div class="feat-icon">📷</div>
+          <div><div class="feat-title">Instagram</div><div class="feat-desc">Detects: saves, story_exits, reel_plays, impressions</div></div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-icon">🎵</div>
+          <div><div class="feat-title">TikTok</div><div class="feat-desc">Detects: video_views, stitches, video_completion_rate</div></div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-icon">🐦</div>
+          <div><div class="feat-title">Twitter / X</div><div class="feat-desc">Detects: retweets, quotes, url_clicks, detail_expands</div></div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-icon">💼</div>
+          <div><div class="feat-title">LinkedIn</div><div class="feat-desc">Detects: ctr, social_actions, organic_reach, paid_reach</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card-teal">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:12px;">Example CSV Row — Instagram</div>
+        <div class="code" style="font-size:11px;">date, post_type, likes, comments,
+shares, saves, reach, impressions,
+followers, hashtags
+
+2025-03-15, Reel, 4820, 312,
+891, 1203, 48200, 72300,
+58400, "#fitness #wellness"</div>
+        <div style="margin-top:16px;font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:8px;">What you get instantly</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="badge badge-teal">15 KPIs</span>
+          <span class="badge badge-teal">Daily trends</span>
+          <span class="badge badge-teal">Anomalies</span>
+          <span class="badge badge-teal">Heatmap</span>
+          <span class="badge badge-teal">Top posts</span>
+          <span class="badge badge-teal">Forecasts</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num" style="color:var(--t3);">05 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 6 — KPI ENGINE
+════════════════════════════════════════════ -->
+<section class="slide slide-dark" id="s6">
+  <div class="eyebrow">Feature 02</div>
+  <h2 class="title">25+ KPIs Computed <span class="accent">Automatically</span></h2>
+  <div class="divider"></div>
+
+  <div class="grid-2 mt-8" style="align-items:start;">
+    <div>
+      <table>
+        <thead><tr><th>Metric</th><th>Formula</th><th>Tells you</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Avg ER</strong></td><td style="opacity:0.55;font-size:12px;">(likes+comments+shares+saves)/reach×100</td><td><span class="badge badge-gold">Health</span></td></tr>
+          <tr><td><strong>Virality Rate</strong></td><td style="opacity:0.55;font-size:12px;">shares / reach × 100</td><td><span class="badge badge-teal">Spread</span></td></tr>
+          <tr><td><strong>Save Rate</strong></td><td style="opacity:0.55;font-size:12px;">saves / impressions × 100</td><td><span class="badge badge-green">Intent</span></td></tr>
+          <tr><td><strong>Comment Rate</strong></td><td style="opacity:0.55;font-size:12px;">comments / reach × 100</td><td><span class="badge badge-gold">Community</span></td></tr>
+          <tr><td><strong>Reach Growth</strong></td><td style="opacity:0.55;font-size:12px;">(last_wk − first_wk) / first × 100</td><td><span class="badge badge-teal">Momentum</span></td></tr>
+          <tr><td><strong>Z-Score</strong></td><td style="opacity:0.55;font-size:12px;">|ER − mean| / std_dev</td><td><span class="badge badge-red">Anomaly</span></td></tr>
+          <tr><td><strong>Caption Impact</strong></td><td style="opacity:0.55;font-size:12px;">Pearson(caption_len, ER)</td><td><span class="badge badge-gold">Content</span></td></tr>
+          <tr><td><strong>Best Day/Hour</strong></td><td style="opacity:0.55;font-size:12px;">max avg ER by weekday × hour</td><td><span class="badge badge-teal">Timing</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="card">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Example Output — Instagram Account</div>
+        <div class="code" style="font-size:12px;">{
+  "avg_engagement_rate": 6.24,
+  "virality_rate": 1.87,
+  "total_reach": 2480000,
+  "follower_growth": 1840,
+  "best_posting_day": "Thursday",
+  "best_posting_hour": "7 PM",
+  "top_post_type": "Reel",
+  "engagement_trend": "↑ up",
+  "anomaly_posts": 3
+}</div>
+      </div>
+      <div class="grid-2 mt-4">
+        <div class="kpi-box card">
+          <span class="kpi-num">6.24%</span>
+          <span class="kpi-lbl">Avg ER</span>
+        </div>
+        <div class="kpi-box card">
+          <span class="kpi-num">2.48M</span>
+          <span class="kpi-lbl">Total Reach</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">06 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 7 — AI INSIGHTS
+════════════════════════════════════════════ -->
+<section class="slide slide-light" id="s7">
+  <div class="eyebrow">Feature 03</div>
+  <h2 class="title">AI <span class="accent">Insights</span> Engine</h2>
+  <div class="divider"></div>
+
+  <div class="grid-2 mt-8" style="align-items:start;">
+    <div>
+      <p class="body">One click. The system sends a structured analytics summary to the AI. Back comes a full strategic report — in plain English, in seconds.</p>
+
+      <div class="card-teal mt-6">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;">Multi-Provider Routing</div>
+        <div class="feat-row" style="border-color:var(--bd);">
+          <div class="feat-icon" style="background:rgba(12,87,82,0.1);">⚡</div>
+          <div><div class="feat-title" style="color:var(--forest);">Groq — Llama 3.3-70B</div><div class="feat-desc">Key prefix: gsk_ · <strong style="color:var(--teal);">FREE</strong></div></div>
+        </div>
+        <div class="feat-row" style="border-color:var(--bd);">
+          <div class="feat-icon" style="background:rgba(12,87,82,0.1);">🌟</div>
+          <div><div class="feat-title" style="color:var(--forest);">Google Gemini 1.5 Flash</div><div class="feat-desc">Key prefix: AIza · <strong style="color:var(--teal);">FREE</strong></div></div>
+        </div>
+        <div class="feat-row" style="border-color:var(--bd);">
+          <div class="feat-icon" style="background:rgba(12,87,82,0.1);">🤖</div>
+          <div><div class="feat-title" style="color:var(--forest);">Anthropic Claude</div><div class="feat-desc">Key prefix: sk-ant- · Paid</div></div>
+        </div>
+        <div class="feat-row" style="border-color:transparent;">
+          <div class="feat-icon" style="background:rgba(12,87,82,0.1);">🔀</div>
+          <div><div class="feat-title" style="color:var(--forest);">OpenRouter</div><div class="feat-desc">Default fallback · Paid</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card-light" style="border-left:3px solid var(--teal);">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:12px;">✨ Real AI Output Example</div>
+        <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:15px;color:var(--forest);line-height:1.7;opacity:0.85;">
+          "Your top 10% of posts share 3 traits: posted Thursday–Friday between 6–9 PM,
+          contain Reels under 30s, and use 8–12 hashtags mixing mega and niche tags.
+          Recommendation: replicate this formula for your next 4 posts and A/B test caption length."
+        </p>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="badge badge-teal">What's working</span>
+          <span class="badge badge-teal">What's failing</span>
+          <span class="badge badge-teal">Specific actions</span>
+          <span class="badge badge-teal">PDF export</span>
+        </div>
+      </div>
+
+      <div class="card-light mt-4" style="background:var(--forest);border-color:rgba(207,194,146,0.2);">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Zero Lock-In</div>
+        <p style="font-size:13px;color:rgba(254,253,251,0.7);line-height:1.6;">Switch AI providers by changing one environment variable. The platform detects your API key prefix and routes automatically — no code changes needed.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num" style="color:var(--t3);">07 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 8 — PERIOD COMPARISON
+════════════════════════════════════════════ -->
+<section class="slide slide-dark" id="s8">
+  <div class="eyebrow">Feature 04</div>
+  <h2 class="title">Period <span class="accent">Comparison</span></h2>
+  <div class="divider"></div>
+
+  <p class="body mt-4">Select two uploads — January vs February, Campaign A vs Campaign B — and get a side-by-side breakdown with delta calculations across 15 metrics.</p>
+
+  <div class="mt-8">
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th style="color:rgba(12,87,82,0.8);">Upload A — Jan</th>
+          <th style="color:rgba(207,194,146,0.8);">Upload B — Feb</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Avg Engagement Rate</td><td>4.8%</td><td>6.2%</td><td class="cmp-up">▲ +29.1%</td></tr>
+        <tr><td>Total Reach</td><td>1.2M</td><td>1.8M</td><td class="cmp-up">▲ +50.0%</td></tr>
+        <tr><td>Virality Rate</td><td>0.9%</td><td>1.4%</td><td class="cmp-up">▲ +55.5%</td></tr>
+        <tr><td>Total Posts</td><td>42</td><td>38</td><td class="cmp-down">▼ −9.5%</td></tr>
+        <tr><td>Follower Growth</td><td>+620</td><td>+1,840</td><td class="cmp-up">▲ +196.7%</td></tr>
+        <tr><td>Save Rate</td><td>1.2%</td><td>2.1%</td><td class="cmp-up">▲ +75.0%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid-3 mt-8">
+    <div class="card" style="text-align:center;">
+      <div style="font-size:24px;margin-bottom:6px;">📅</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;">Daily View</div>
+      <div style="font-size:11px;opacity:0.5;margin-top:4px;">Overlaid ER line charts</div>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:24px;margin-bottom:6px;">📆</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;">Weekly View</div>
+      <div style="font-size:11px;opacity:0.5;margin-top:4px;">Reach + likes trends</div>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:24px;margin-bottom:6px;">🗓️</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;">Monthly View</div>
+      <div style="font-size:11px;opacity:0.5;margin-top:4px;">Post type breakdown bar chart</div>
+    </div>
+  </div>
+
+  <div style="margin-top:16px;padding:14px 20px;background:rgba(207,194,146,0.08);border-radius:12px;border-left:3px solid var(--gold);">
+    <strong style="font-family:'Outfit',sans-serif;font-size:13px;">CEO Value:</strong>
+    <span style="font-size:13px;opacity:0.7;margin-left:8px;">Prove with data whether a new content strategy outperforms the old one — before committing the full marketing budget.</span>
+  </div>
+
+  <div class="slide-num">08 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 9 — HASHTAG LAB
+════════════════════════════════════════════ -->
+<section class="slide slide-beige" id="s9">
+  <div class="eyebrow">Feature 05</div>
+  <h2 class="title">Hashtag <span class="accent">Lab</span></h2>
+  <div class="divider"></div>
+
+  <p class="body mt-4">Pick a platform and niche. AI generates a 4-tier hashtag strategy in seconds, ranked by volume and competition.</p>
+
+  <div class="grid-4 mt-8">
+    <div class="card-light" style="border-top:3px solid #6366f1;">
+      <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:13px;color:#6366f1;margin-bottom:6px;">MEGA</div>
+      <div style="font-size:11px;color:var(--t3);margin-bottom:12px;">1M+ posts</div>
+      <div style="font-size:12px;color:var(--t2);line-height:1.8;">#fashion<br/>#fitness<br/>#food</div>
+      <div style="margin-top:10px;font-size:11px;color:var(--t3);">Discoverability at scale</div>
+    </div>
+    <div class="card-light" style="border-top:3px solid var(--teal);">
+      <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:13px;color:var(--teal);margin-bottom:6px;">MACRO</div>
+      <div style="font-size:11px;color:var(--t3);margin-bottom:12px;">500K–1M posts</div>
+      <div style="font-size:12px;color:var(--t2);line-height:1.8;">#sustainablestyle<br/>#morningworkout<br/>#healthyeating</div>
+      <div style="margin-top:10px;font-size:11px;color:var(--t3);">Balanced reach</div>
+    </div>
+    <div class="card-light" style="border-top:3px solid var(--gold-dk);">
+      <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:13px;color:var(--gold-dk);margin-bottom:6px;">MICRO</div>
+      <div style="font-size:11px;color:var(--t3);margin-bottom:12px;">50K–500K posts</div>
+      <div style="font-size:12px;color:var(--t2);line-height:1.8;">#slowfashionmovement<br/>#gymlifestyle<br/>#mealprepsunday</div>
+      <div style="margin-top:10px;font-size:11px;color:var(--t3);">Targeted community</div>
+    </div>
+    <div class="card-light" style="border-top:3px solid #a78bfa;">
+      <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:13px;color:#a78bfa;margin-bottom:6px;">NICHE</div>
+      <div style="font-size:11px;color:var(--t3);margin-bottom:12px;">&lt;50K posts</div>
+      <div style="font-size:12px;color:var(--t2);line-height:1.8;">#ethicalwardrobeswap<br/>#6amrunclub<br/>#plantbasedketo</div>
+      <div style="margin-top:10px;font-size:11px;color:var(--t3);">High ER, low competition</div>
+    </div>
+  </div>
+
+  <div class="card-teal mt-6">
+    <strong style="font-size:13px;color:var(--forest);">Recommended mix per post:</strong>
+    <span style="font-size:13px;color:var(--t2);margin-left:8px;">2 Mega + 3 Macro + 5 Micro + 5 Niche = <strong style="color:var(--teal);">15 hashtags</strong></span>
+    <div style="margin-top:8px;font-size:12px;color:var(--t3);">Also shows your own top-performing hashtags from uploaded data, ranked by frequency and average engagement rate.</div>
+  </div>
+
+  <div class="slide-num" style="color:var(--t3);">09 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 10 — CAPTION ENGINE
+════════════════════════════════════════════ -->
+<section class="slide slide-dark" id="s10">
+  <div class="eyebrow">Feature 06</div>
+  <h2 class="title">Caption <span class="accent">Engine</span></h2>
+  <div class="divider"></div>
+
+  <div class="grid-2 mt-8" style="align-items:start;">
+    <div>
+      <p class="body">Enter a brief. Get a ready-to-post caption with hashtags — for any platform, any tone.</p>
+
+      <div class="card mt-6">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Input</div>
+        <div style="font-size:13px;opacity:0.7;line-height:1.8;">
+          Platform: <strong>Instagram</strong><br/>
+          Tone: <strong>Motivational</strong><br/>
+          Topic: <strong>New product launch — Eiden Recovery Serum</strong>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Supported Tones</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span class="badge badge-gold">Professional</span>
+          <span class="badge badge-gold">Casual</span>
+          <span class="badge badge-gold">Motivational</span>
+          <span class="badge badge-gold">Educational</span>
+          <span class="badge badge-gold">Promotional</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-left:3px solid var(--gold);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">✨ AI Output — Ready to Post</div>
+      <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:16px;line-height:1.8;opacity:0.9;">
+        Your skin works hard.<br/>
+        Give it the recovery it deserves. ✨
+      </p>
+      <p style="font-size:13px;opacity:0.65;margin-top:12px;line-height:1.8;">
+        Introducing the Eiden Recovery Serum — formulated with ceramides, niacinamide, and hyaluronic acid to restore your barrier overnight.
+        <br/><br/>
+        Because real results come from real ingredients.
+      </p>
+      <p style="font-size:12px;margin-top:12px;opacity:0.5;">
+        #skincare #recovery #eidenbeauty #cleanbeauty #serumlovers
+      </p>
+    </div>
+  </div>
+
+  <div class="slide-num">10 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 11 — KPI GOALS
+════════════════════════════════════════════ -->
+<section class="slide slide-light" id="s11">
+  <div class="eyebrow">Feature 07</div>
+  <h2 class="title">KPI <span class="accent">Goals</span> & Tracking</h2>
+  <div class="divider"></div>
+
+  <div class="grid-2 mt-8" style="align-items:start;">
+    <div>
+      <p class="body">Set measurable targets. Track progress in a Kanban view. The marketing team and CEO see real-time goal status — no spreadsheets.</p>
+
+      <div class="mt-6 space-y-4">
+        <div class="card-light" style="margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <div>
+              <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;color:var(--forest);">100K Monthly Reach</div>
+              <div style="font-size:12px;color:var(--t3);margin-top:2px;">Instagram · Due Jun 30 2026</div>
+            </div>
+            <span class="badge badge-green">On Track</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--t2);margin-bottom:6px;">
+            <span>62,400 current</span><span style="font-weight:700;color:var(--teal);">62.4%</span>
+          </div>
+          <div class="prog-track"><div class="prog-fill" style="width:62%;"></div></div>
+        </div>
+
+        <div class="card-light" style="margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <div>
+              <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;color:var(--forest);">5% Avg Engagement Rate</div>
+              <div style="font-size:12px;color:var(--t3);margin-top:2px;">All platforms · Due May 15 2026</div>
+            </div>
+            <span class="badge badge-gold">In Progress</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--t2);margin-bottom:6px;">
+            <span>3.8% current</span><span style="font-weight:700;color:var(--teal);">76%</span>
+          </div>
+          <div class="prog-track"><div class="prog-fill" style="width:76%;"></div></div>
+        </div>
+
+        <div class="card-light">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <div>
+              <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;color:var(--forest);">+5K New Followers</div>
+              <div style="font-size:12px;color:var(--t3);margin-top:2px;">TikTok · Due Jul 1 2026</div>
+            </div>
+            <span class="badge badge-red">Behind</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--t2);margin-bottom:6px;">
+            <span>1,200 gained</span><span style="font-weight:700;color:#ef4444;">24%</span>
+          </div>
+          <div class="prog-track"><div class="prog-fill" style="width:24%;background:#ef4444;"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;">Kanban Pipeline View</div>
+      <div class="grid-3" style="gap:12px;">
+        <div class="card-teal" style="padding:16px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:10px;">To Do</div>
+          <div style="font-size:12px;color:var(--t2);line-height:1.8;">Email campaign<br/>Paid ads test<br/>Story series</div>
+        </div>
+        <div class="card-light" style="border-top:2px solid var(--teal);padding:16px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;">In Progress</div>
+          <div style="font-size:12px;color:var(--t2);line-height:1.8;">100K Reach<br/>ER 5% target</div>
+        </div>
+        <div class="card-light" style="border-top:2px solid var(--mint);padding:16px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#059669;margin-bottom:10px;">Done ✓</div>
+          <div style="font-size:12px;color:var(--t2);line-height:1.8;">Brand kit applied<br/>AI insights live</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num" style="color:var(--t3);">11 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 12 — ALERTS & ANOMALY
+════════════════════════════════════════════ -->
+<section class="slide slide-dark" id="s12">
+  <div class="eyebrow">Feature 08</div>
+  <h2 class="title">Smart <span class="accent">Alerts</span></h2>
+  <div class="divider"></div>
+
+  <p class="body mt-4">Statistical anomaly detection (Z-score > 2.0) automatically surfaces unusual posts and performance drops — no manual monitoring needed.</p>
+
+  <div class="grid-2 mt-8" style="align-items:start;gap:24px;">
+    <div>
+      <div class="feat-row">
+        <div class="feat-icon" style="background:rgba(52,211,153,0.15);font-size:18px;">🚀</div>
+        <div>
+          <div class="feat-title">Viral Spike</div>
+          <div class="feat-desc">Post ER is 2.5× above account average — boosted for similar content</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-icon" style="background:rgba(239,68,68,0.15);font-size:18px;">📉</div>
+        <div>
+          <div class="feat-title">Engagement Drop</div>
+          <div class="feat-desc">Last 3 posts performing 40%+ below baseline — investigate format or timing</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-icon" style="background:rgba(207,194,146,0.15);font-size:18px;">⏰</div>
+        <div>
+          <div class="feat-title">Best Time Missed</div>
+          <div class="feat-desc">Zero posts during your top-performing time window this week</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-icon" style="background:rgba(96,165,250,0.15);font-size:18px;">#</div>
+        <div>
+          <div class="feat-title">Hashtag Opportunity</div>
+          <div class="feat-desc">Top 3 hashtags from your data show untapped reach potential</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-left:3px solid #ef4444;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f87171;margin-bottom:12px;">🔴 Live Alert Example</div>
+      <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:14px;line-height:1.7;opacity:0.85;">
+        "Engagement Drop Detected — your last 4 posts averaged 2.1% ER vs. your 30-day average of 5.8%. Consider reviewing posting time, hashtag strategy, or content format."
+      </p>
+      <div style="margin-top:16px;display:flex;gap:8px;">
+        <span class="badge badge-red">Auto-detected</span>
+        <span class="badge badge-gold">Dismissable</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">12 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 13 — FORECASTING
+════════════════════════════════════════════ -->
+<section class="slide slide-beige" id="s13">
+  <div class="eyebrow">Feature 09</div>
+  <h2 class="title">4-Week <span class="accent">Forecasting</span></h2>
+  <div class="divider"></div>
+
+  <p class="body mt-4">Linear trend extrapolation on weekly data projects the next 4 weeks of engagement rate and reach — cached and recomputed on demand.</p>
+
+  <div class="grid-2 mt-8" style="align-items:start;">
+    <div>
+      <table>
+        <thead><tr><th>Period</th><th>Avg ER</th><th>Est. Reach</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Week 1</td><td>4.2%</td><td>48,000</td><td><span class="badge badge-teal">Actual</span></td></tr>
+          <tr><td>Week 2</td><td>4.9%</td><td>55,000</td><td><span class="badge badge-teal">Actual</span></td></tr>
+          <tr><td>Week 3</td><td>5.6%</td><td>63,000</td><td><span class="badge badge-teal">Actual</span></td></tr>
+          <tr><td>Week 4</td><td style="color:var(--teal);font-weight:700;">~6.1%</td><td style="color:var(--teal);font-weight:700;">~71,000</td><td><span class="badge badge-gold">Forecast</span></td></tr>
+          <tr><td>Week 5</td><td style="color:var(--teal);font-weight:700;">~6.5%</td><td style="color:var(--teal);font-weight:700;">~78,000</td><td><span class="badge badge-gold">Forecast</span></td></tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:20px;padding:14px 18px;background:rgba(12,87,82,0.08);border-radius:12px;border:1px solid rgba(12,87,82,0.15);">
+        <div style="font-size:13px;color:var(--forest);line-height:1.6;">📈 <strong>Trend:</strong> ↑ Upward — engagement growing ~0.7 pp/week. At this trajectory, you'll hit <strong>6.5% ER</strong> by week 5.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card-teal">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:12px;">Used In</div>
+        <div class="feat-row" style="border-color:var(--bd);">
+          <div class="feat-title" style="color:var(--forest);">📊 Reports Page</div>
+        </div>
+        <div class="feat-row" style="border-color:var(--bd);">
+          <div class="feat-title" style="color:var(--forest);">✨ AI Insights</div>
+        </div>
+        <div class="feat-row" style="border-color:var(--bd);">
+          <div class="feat-title" style="color:var(--forest);">🎯 Goal Gap Analysis</div>
+        </div>
+        <div class="feat-row" style="border-color:transparent;">
+          <div class="feat-title" style="color:var(--forest);">🗓️ Content Calendar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num" style="color:var(--t3);">13 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 14 — FULL FEATURE MAP
+════════════════════════════════════════════ -->
+<section class="slide slide-dark" id="s14">
+  <div class="eyebrow">Platform Overview</div>
+  <h2 class="title">The Full <span class="accent">Feature Map</span></h2>
+  <div class="divider"></div>
+
+  <div class="grid-4 mt-8">
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Dashboard</div>
+      <div class="feat-row" style="padding:8px 0;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">📊</div><div class="feat-title" style="font-size:13px;">Overview</div></div>
+      <div class="feat-row" style="padding:8px 0;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">📋</div><div class="feat-title" style="font-size:13px;">Posts Table</div></div>
+      <div class="feat-row" style="padding:8px 0;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">✨</div><div class="feat-title" style="font-size:13px;">AI Insights</div></div>
+      <div class="feat-row" style="padding:8px 0;border-bottom:none;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">🔔</div><div class="feat-title" style="font-size:13px;">Alerts</div></div>
+    </div>
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Analytics</div>
+      <div class="feat-row" style="padding:8px 0;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">📈</div><div class="feat-title" style="font-size:13px;">Reports</div></div>
+      <div class="feat-row" style="padding:8px 0;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">🔀</div><div class="feat-title" style="font-size:13px;">Compare Periods</div></div>
+      <div class="feat-row" style="padding:8px 0;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">👥</div><div class="feat-title" style="font-size:13px;">Audience</div></div>
+      <div class="feat-row" style="padding:8px 0;border-bottom:none;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">🎬</div><div class="feat-title" style="font-size:13px;">Reels & Stories</div></div>
+    </div>
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Growth</div>
+      <div class="feat-row" style="padding:8px 0;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">🎯</div><div class="feat-title" style="font-size:13px;">KPI Goals</div></div>
+      <div class="feat-row" style="padding:8px 0;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">#</div><div class="feat-title" style="font-size:13px;">Hashtag Lab</div></div>
+      <div class="feat-row" style="padding:8px 0;border-bottom:none;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">🏆</div><div class="feat-title" style="font-size:13px;">Competitor Intel</div></div>
+    </div>
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Content</div>
+      <div class="feat-row" style="padding:8px 0;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">✏️</div><div class="feat-title" style="font-size:13px;">Caption Engine</div></div>
+      <div class="feat-row" style="padding:8px 0;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">📅</div><div class="feat-title" style="font-size:13px;">Content Calendar</div></div>
+      <div class="feat-row" style="padding:8px 0;border-bottom:none;"><div class="feat-icon" style="font-size:14px;width:28px;height:28px;">💰</div><div class="feat-title" style="font-size:13px;">Paid vs Organic</div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;padding:14px 20px;background:rgba(207,194,146,0.06);border:1px solid rgba(207,194,146,0.15);border-radius:12px;display:flex;align-items:center;gap:16px;">
+    <span style="font-size:24px;">🔗</span>
+    <span style="font-size:13px;opacity:0.7;"><strong>25 REST API endpoints</strong> — every feature is accessible programmatically for future integrations and automation.</span>
+  </div>
+
+  <div class="slide-num">14 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 15 — SECURITY
+════════════════════════════════════════════ -->
+<section class="slide slide-light" id="s15">
+  <div class="eyebrow">Infrastructure</div>
+  <h2 class="title">Security & <span class="accent">Infrastructure</span></h2>
+  <div class="divider"></div>
+
+  <div class="grid-2 mt-8" style="align-items:start;">
+    <div>
+      <table>
+        <thead><tr><th>Layer</th><th>Solution</th><th>Guarantee</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Hosting</strong></td><td>Railway + Vercel</td><td><span class="badge badge-green">Zero-downtime deploys</span></td></tr>
+          <tr><td><strong>Database</strong></td><td>PostgreSQL (Railway)</td><td><span class="badge badge-green">Encrypted at rest</span></td></tr>
+          <tr><td><strong>AI keys</strong></td><td>Server env variables</td><td><span class="badge badge-green">Never in frontend</span></td></tr>
+          <tr><td><strong>Data isolation</strong></td><td>UUID per upload</td><td><span class="badge badge-green">No cross-account leak</span></td></tr>
+          <tr><td><strong>CORS</strong></td><td>Strict origin allowlist</td><td><span class="badge badge-green">Frontend-only access</span></td></tr>
+          <tr><td><strong>CI/CD</strong></td><td>GitHub → Railway auto</td><td><span class="badge badge-green">Deploy on push</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div class="card-light" style="border-top:3px solid var(--teal);">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:12px;">Database Schema — 6 Tables</div>
+        <div class="code" style="font-size:12px;">uploads      → UUID, platform, row_count, status
+analytics    → 30+ computed fields, JSON blobs
+posts        → per-post metrics, z-score, anomaly flag
+ai_insights  → cached AI reports per upload
+alerts       → auto-generated warnings
+goals        → KPI targets, progress, deadlines</div>
+      </div>
+
+      <div class="card-light mt-4">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:8px;">Deployment Pipeline</div>
+        <div class="flow" style="gap:6px;">
+          <div class="flow-step" style="background:rgba(12,87,82,0.08);border-color:rgba(12,87,82,0.2);color:var(--teal);font-size:12px;padding:8px 12px;">Git Push</div>
+          <div class="flow-arrow" style="color:var(--t3);">→</div>
+          <div class="flow-step" style="background:rgba(12,87,82,0.08);border-color:rgba(12,87,82,0.2);color:var(--teal);font-size:12px;padding:8px 12px;">GitHub</div>
+          <div class="flow-arrow" style="color:var(--t3);">→</div>
+          <div class="flow-step" style="background:rgba(12,87,82,0.08);border-color:rgba(12,87,82,0.2);color:var(--teal);font-size:12px;padding:8px 12px;">Railway</div>
+          <div class="flow-arrow" style="color:var(--t3);">→</div>
+          <div class="flow-step" style="background:rgba(12,87,82,0.08);border-color:rgba(12,87,82,0.2);color:var(--teal);font-size:12px;padding:8px 12px;">Live ✓</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num" style="color:var(--t3);">15 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 16 — COST
+════════════════════════════════════════════ -->
+<section class="slide slide-dark" id="s16">
+  <div class="eyebrow">Business Model</div>
+  <h2 class="title">Cost: <span class="accent">$10/month</span></h2>
+  <div class="divider"></div>
+
+  <div class="grid-2 mt-8" style="align-items:start;">
+    <div>
+      <table>
+        <thead><tr><th>Component</th><th>Provider</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>Backend compute</td><td>Railway Starter</td><td><strong>$5/mo</strong></td></tr>
+          <tr><td>PostgreSQL DB</td><td>Railway</td><td><strong>$5/mo</strong></td></tr>
+          <tr><td>Frontend CDN</td><td>Vercel</td><td><span style="color:var(--mint);font-weight:700;">FREE</span></td></tr>
+          <tr><td>AI inference</td><td>Groq + Gemini</td><td><span style="color:var(--mint);font-weight:700;">FREE</span></td></tr>
+          <tr style="border-top:1px solid rgba(207,194,146,0.3);"><td><strong>Total</strong></td><td></td><td><strong style="color:var(--gold);font-size:18px;">~$10/mo</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Scalability Projection</div>
+      <div class="feat-row">
+        <div class="kpi-box" style="padding:0;text-align:left;">
+          <span class="kpi-num" style="font-size:1.4rem;">$10</span>
+          <span class="kpi-lbl">Today · MVP</span>
+        </div>
+        <div style="flex:1;padding-left:16px;font-size:12px;opacity:0.6;line-height:1.6;">Current stack handles up to ~500 active users with no infrastructure changes needed.</div>
+      </div>
+      <div class="feat-row">
+        <div class="kpi-box" style="padding:0;text-align:left;">
+          <span class="kpi-num" style="font-size:1.4rem;">$80</span>
+          <span class="kpi-lbl">10K users/mo</span>
+        </div>
+        <div style="flex:1;padding-left:16px;font-size:12px;opacity:0.6;line-height:1.6;">Railway Pro + Vercel Pro. Still no major architectural changes needed.</div>
+      </div>
+      <div class="feat-row" style="border-bottom:none;">
+        <div class="kpi-box" style="padding:0;text-align:left;">
+          <span class="kpi-num" style="font-size:1.4rem;">$400</span>
+          <span class="kpi-lbl">100K users/mo</span>
+        </div>
+        <div style="flex:1;padding-left:16px;font-size:12px;opacity:0.6;line-height:1.6;">Migrate to dedicated cloud (AWS/GCP). Add Redis caching, CDN for uploads.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">16 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 17 — COMPETITIVE
+════════════════════════════════════════════ -->
+<section class="slide slide-light" id="s17">
+  <div class="eyebrow">Market Position</div>
+  <h2 class="title">Competitive <span class="accent">Advantage</span></h2>
+  <div class="divider"></div>
+
+  <div class="mt-8">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th style="color:var(--teal);">SocialPulse</th>
+          <th>Hootsuite</th>
+          <th>Sprout Social</th>
+          <th>Later</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CSV upload (any format)</td>
+          <td class="yes">✅</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td>
+        </tr>
+        <tr>
+          <td>AI insights — free tier</td>
+          <td class="yes">✅</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td>
+        </tr>
+        <tr>
+          <td>Period comparison</td>
+          <td class="yes">✅</td>
+          <td style="color:var(--gold-dk);font-size:12px;">Paid</td>
+          <td style="color:var(--gold-dk);font-size:12px;">Paid</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td>Anomaly detection</td>
+          <td class="yes">✅</td><td class="no">✗</td><td class="no">✗</td><td class="no">✗</td>
+        </tr>
+        <tr>
+          <td>KPI goal tracking</td>
+          <td class="yes">✅</td>
+          <td style="color:var(--gold-dk);font-size:12px;">Paid</td>
+          <td style="color:var(--gold-dk);font-size:12px;">Paid</td>
+          <td class="no">✗</td>
+        </tr>
+        <tr>
+          <td>Caption + hashtag AI</td>
+          <td class="yes">✅</td>
+          <td style="color:var(--gold-dk);font-size:12px;">Partial</td>
+          <td class="no">✗</td><td class="no">✗</td>
+        </tr>
+        <tr>
+          <td>Monthly cost</td>
+          <td style="color:var(--teal);font-weight:800;font-family:'Outfit',sans-serif;">$10</td>
+          <td style="font-weight:600;">$99+</td>
+          <td style="font-weight:600;">$249+</td>
+          <td style="font-weight:600;">$18+</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-top:20px;padding:16px 20px;background:rgba(12,87,82,0.06);border-radius:12px;border:1px solid rgba(12,87,82,0.15);">
+    <strong style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--teal);">10× cheaper than Hootsuite. More features than any competitor at this price point.</strong>
+  </div>
+
+  <div class="slide-num" style="color:var(--t3);">17 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 18 — ROADMAP
+════════════════════════════════════════════ -->
+<section class="slide slide-dark" id="s18">
+  <div class="eyebrow">What's Next</div>
+  <h2 class="title">90-Day <span class="accent">Roadmap</span></h2>
+  <div class="divider"></div>
+
+  <div class="grid-3 mt-8">
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f87171;margin-bottom:14px;">🔴 High Priority</div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#f87171;"></div>
+        <div>
+          <div class="feat-title">Direct API Integrations</div>
+          <div class="feat-desc">Instagram Graph API, TikTok API — no CSV uploads needed</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:#f87171;"></div>
+        <div>
+          <div class="feat-title">Multi-User Accounts</div>
+          <div class="feat-desc">Role management (admin/editor/viewer) for team and agency use</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">🟡 Medium Priority</div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--gold);"></div>
+        <div>
+          <div class="feat-title">Competitor Benchmarking</div>
+          <div class="feat-desc">Real-time competitive intelligence with public data</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--gold);"></div>
+        <div>
+          <div class="feat-title">Weekly Email Digest</div>
+          <div class="feat-desc">Scheduled AI reports delivered to inbox — passive monitoring</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--mint);margin-bottom:14px;">🟢 Low Priority</div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--mint);"></div>
+        <div>
+          <div class="feat-title">White-Label Mode</div>
+          <div class="feat-desc">Agencies can resell under their own brand</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--mint);"></div>
+        <div>
+          <div class="feat-title">Mobile App</div>
+          <div class="feat-desc">React Native — dashboard on the go</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">18 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 19 — CLOSING
+════════════════════════════════════════════ -->
+<section class="slide slide-teal" id="s19">
+  <div class="deco-circle" style="width:600px;height:600px;right:-200px;bottom:-200px;background:var(--forest);opacity:0.25;"></div>
+
+  <div style="position:relative;z-index:1;max-width:900px;">
+    <div class="eyebrow">Summary</div>
+    <h2 class="title">One Platform.<br/>Complete <span class="accent">Intelligence</span>.</h2>
+    <div class="divider"></div>
+
+    <div class="grid-2 mt-8" style="gap:20px;">
+      <div class="card" style="background:rgba(0,0,0,0.15);border-color:rgba(207,194,146,0.2);">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">WHAT</div>
+        <p style="font-size:14px;line-height:1.7;opacity:0.85;">AI analytics platform that transforms raw social media CSVs into actionable intelligence — instantly.</p>
+      </div>
+      <div class="card" style="background:rgba(0,0,0,0.15);border-color:rgba(207,194,146,0.2);">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">WHY</div>
+        <p style="font-size:14px;line-height:1.7;opacity:0.85;">Brands waste marketing budget without data-driven decisions. We make analytics accessible, affordable, and actionable.</p>
+      </div>
+      <div class="card" style="background:rgba(0,0,0,0.15);border-color:rgba(207,194,146,0.2);">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">HOW</div>
+        <p style="font-size:14px;line-height:1.7;opacity:0.85;">Upload CSV → auto-detect platform → compute 25+ KPIs → AI insights → compare periods → take action.</p>
+      </div>
+      <div class="card" style="background:rgba(0,0,0,0.15);border-color:rgba(207,194,146,0.2);">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">COST</div>
+        <p style="font-size:14px;line-height:1.7;opacity:0.85;"><strong style="font-family:'Outfit',sans-serif;font-size:18px;">~$10/month</strong> today. Scales to $80/mo at 10K users. 10× cheaper than any comparable tool.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+      <span class="badge badge-green">✅ Live on Railway + Vercel</span>
+      <span class="badge badge-gold">Full feature set operational</span>
+      <span class="badge badge-gold">Eiden brand applied</span>
+      <span class="badge badge-green">PostgreSQL confirmed</span>
+      <span class="badge badge-gold">Multi-AI provider</span>
+    </div>
+  </div>
+
+  <div class="slide-num">19 / 19</div>
+  <div class="footer-bar"></div>
+</section>
+
+<!-- ── SCRIPTS ── -->
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const navContainer = document.getElementById('nav-dots');
+  const hint = document.getElementById('kbd-hint');
+
+  // Build nav dots
+  slides.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'nav-dot';
+    btn.title = `Slide ${i + 1}`;
+    btn.addEventListener('click', () => {
+      slides[i].scrollIntoView({ behavior: 'smooth' });
+    });
+    navContainer.appendChild(btn);
+  });
+
+  const dots = document.querySelectorAll('.nav-dot');
+
+  // IntersectionObserver for active dot
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(slides).indexOf(entry.target);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: 0.5 });
+
+  slides.forEach(s => observer.observe(s));
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    const current = Array.from(dots).findIndex(d => d.classList.contains('active'));
+    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault();
+      const next = Math.min(current + 1, slides.length - 1);
+      slides[next].scrollIntoView({ behavior: 'smooth' });
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      const prev = Math.max(current - 1, 0);
+      slides[prev].scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
+  // Hide hint after 4s
+  setTimeout(() => { hint.style.opacity = '0'; }, 4000);
+</script>
+</body>
+</html>
