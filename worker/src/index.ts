@@ -6,7 +6,6 @@ import { getInsights, generateCaptions, explainPost, generateHashtagStrategy } f
 
 type Bindings = {
   DB: D1Database
-  CSV_BUCKET: R2Bucket
   ANTHROPIC_API_KEY: string
   FRONTEND_URL: string
 }
@@ -68,12 +67,6 @@ app.post('/api/upload', async (c) => {
 
     const text   = await file.text()
     const id     = crypto.randomUUID()
-    const r2Key  = `uploads/${id}/${file.name}`
-
-    // Store raw CSV in R2
-    await c.env.CSV_BUCKET.put(r2Key, text, {
-      httpMetadata: { contentType: 'text/csv' },
-    })
 
     // Parse & analyse
     const rows    = parseCSV(text)
