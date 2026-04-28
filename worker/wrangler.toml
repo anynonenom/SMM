@@ -10,7 +10,7 @@ FRONTEND_URL = "http://localhost:3000"
 [[d1_databases]]
 binding = "DB"
 database_name = "eiden-smm-db"
-database_id = "54e2cf8f-7820-4610-99a7-82494eb91625"
+database_id = "8e019c70-a7f9-4381-ada3-9fdea6517590"
 
 
 
