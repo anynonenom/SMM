@@ -12,10 +12,6 @@ binding = "DB"
 database_name = "eiden-smm-db"
 database_id = "54e2cf8f-7820-4610-99a7-82494eb91625"
 
-# After running `npm run r2:create`, this bucket will be ready
-[[r2_buckets]]
-binding = "CSV_BUCKET"
-bucket_name = "eiden-smm-csvs"
 
-# Secrets (set via: wrangler secret put ANTHROPIC_API_KEY)
-# ANTHROPIC_API_KEY
+
+
