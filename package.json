@@ -2,7 +2,7 @@
   "name": "eiden-smm-analytics",
   "version": "1.0.0",
   "private": true,
-  "workspaces": ["frontend", "worker"],
+  "workspaces": ["frontend", "worker", "backend"],
   "scripts": {
     "dev:frontend": "cd frontend && npm run dev",
     "dev:worker": "cd worker && npm run dev",
